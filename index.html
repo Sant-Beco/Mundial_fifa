@@ -3,567 +3,554 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mi Pronóstico Mundial 2026 🇨🇴</title>
+<title>🇨🇴 Colombia vs Suiza — Octavos 2026</title>
 <style>
-/* ===== FUENTES ===== */
-@font-face {
-  font-family: 'Futura';
-  src: url('assets/futura-light.ttf') format('truetype');
-  font-weight: 300;
-}
-@font-face {
-  font-family: 'Futura';
-  src: url('assets/futura-book.ttf') format('truetype');
-  font-weight: 400;
-}
-@font-face {
-  font-family: 'Futura';
-  src: url('assets/futura-bold.ttf') format('truetype');
-  font-weight: 700;
-}
+@font-face { font-family:'Futura'; src:url('assets/futura-light.ttf') format('truetype'); font-weight:300; }
+@font-face { font-family:'Futura'; src:url('assets/futura-book.ttf') format('truetype');  font-weight:400; }
+@font-face { font-family:'Futura'; src:url('assets/futura-bold.ttf') format('truetype');  font-weight:700; }
 
 :root {
-  --naranja:  #F59C00;
-  --amarillo: #FFCC00;
-  --rojizo:   #EB6608;
-  --blanco:   #FFFFFF;
-  --fondo:    #FAFAFA;
-  --gris:     #E8E8E8;
-  --tinta:    #222222;
-  --suave:    #666666;
-  --radio:    14px;
+  --naranja:#F59C00; --amarillo:#FFCC00; --rojizo:#EB6608;
+  --fondo:#FAFAFA; --gris:#E8E8E8; --tinta:#222; --suave:#666;
+  --verde:#2E7D32; --radio:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Futura',sans-serif;font-weight:400;background:var(--fondo);color:var(--tinta);min-height:100vh;}
+
+/* HERO */
+.hero{
+  background:linear-gradient(160deg,var(--amarillo) 0%,var(--naranja) 60%,var(--rojizo) 100%);
+  padding:36px 20px 56px; text-align:center; position:relative;
+}
+.hero-emoji{font-size:48px;display:block;margin-bottom:10px;line-height:1;}
+.hero h1{font-weight:700;font-size:1.5rem;color:#fff;letter-spacing:2px;text-transform:uppercase;line-height:1.25;}
+.hero-sub{font-weight:300;font-size:0.8rem;color:rgba(255,255,255,0.88);margin-top:5px;letter-spacing:1.5px;text-transform:uppercase;}
+.hero-wave{position:absolute;bottom:-1px;left:0;right:0;}
+
+/* VERSUS BANNER */
+.versus-banner{
+  background:#fff;border:1.5px solid var(--gris);border-radius:16px;
+  padding:16px;margin:16px 0;text-align:center;
+  box-shadow:0 2px 10px rgba(0,0,0,0.06);
+}
+.versus-equipos{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:10px;}
+.equipo-vs{text-align:center;flex:1;}
+.bandera-grande{display:block;width:64px;height:auto;margin:0 auto 8px;border-radius:4px;box-shadow:0 1px 4px rgba(0,0,0,0.15);}
+.nombre-equipo{font-weight:700;font-size:0.78rem;letter-spacing:1px;text-transform:uppercase;color:var(--tinta);}
+.vs-separador{font-weight:700;font-size:1.1rem;color:var(--suave);letter-spacing:2px;}
+.dato-partido{font-size:0.72rem;font-weight:300;color:var(--suave);letter-spacing:.5px;}
+.dato-partido strong{font-weight:700;color:var(--naranja);}
+
+/* GLOBO */
+.globo-wrap{display:flex;justify-content:center;padding:16px 16px 0;}
+.globo{
+  background:#fff;border:1.5px solid var(--gris);border-radius:12px;
+  padding:12px 18px;font-size:0.88rem;color:var(--suave);
+  max-width:360px;text-align:center;
+  box-shadow:0 2px 10px rgba(0,0,0,0.06);position:relative;
+}
+.globo::before{content:'';position:absolute;top:-9px;left:50%;transform:translateX(-50%);border:9px solid transparent;border-bottom-color:var(--gris);}
+.globo::after{content:'';position:absolute;top:-6px;left:50%;transform:translateX(-50%);border:7px solid transparent;border-bottom-color:#fff;z-index:1;}
+
+/* WRAP */
+.wrap{max-width:500px;margin:0 auto;padding:16px 16px 80px;}
+.seccion{margin-top:20px;}
+.etiqueta{font-weight:700;font-size:0.72rem;letter-spacing:1.8px;text-transform:uppercase;color:var(--naranja);margin-bottom:10px;}
+
+/* TARJETA */
+.tarjeta{background:#fff;border:1.5px solid var(--gris);border-radius:var(--radio);padding:18px;box-shadow:0 1px 6px rgba(0,0,0,0.05);}
+
+/* INPUT TEXTO */
+.input-texto{
+  width:100%;font-family:'Futura',sans-serif;font-size:0.95rem;
+  padding:12px 14px;border:1.5px solid var(--gris);border-radius:10px;
+  background:var(--fondo);color:var(--tinta);outline:none;transition:border-color .2s;
+}
+.input-texto:focus{border-color:var(--naranja);background:#fff;}
+.input-texto::placeholder{color:#bbb;}
+.contador-caracteres{text-align:right;font-size:0.72rem;color:var(--suave);opacity:.6;margin-top:5px;}
+
+/* MARCADOR */
+.marcador-titulo{font-weight:700;font-size:0.85rem;letter-spacing:.5px;margin-bottom:16px;text-align:center;}
+.marcador-fila{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:8px;}
+.equipo-marcador{text-align:center;flex:1;}
+.equipo-nombre{font-size:0.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--suave);margin-bottom:10px;}
+.equipo-bandera{display:block;width:48px;height:auto;margin:0 auto 8px;border-radius:3px;box-shadow:0 1px 4px rgba(0,0,0,0.12);}
+.stepper{display:flex;align-items:center;justify-content:center;gap:8px;}
+.stepper button{
+  width:40px;height:40px;border-radius:50%;
+  border:1.5px solid var(--naranja);background:#fff;
+  font-family:'Futura',sans-serif;font-size:1.2rem;font-weight:700;
+  cursor:pointer;color:var(--naranja);transition:background .15s,color .15s;
+}
+.stepper button:hover{background:var(--naranja);color:#fff;}
+.stepper .valor{font-family:'Futura',sans-serif;font-size:2rem;font-weight:700;width:42px;text-align:center;}
+.vs{font-weight:700;font-size:0.75rem;letter-spacing:1px;color:var(--suave);align-self:flex-end;margin-bottom:20px;}
+
+/* OPCIONES BOTONES */
+.opciones-grid{display:grid;gap:10px;margin-top:10px;}
+.opciones-grid.col2{grid-template-columns:1fr 1fr;}
+.opciones-grid.col3{grid-template-columns:1fr 1fr 1fr;}
+.op-btn{
+  font-family:'Futura',sans-serif;font-weight:700;font-size:0.72rem;
+  letter-spacing:.5px;text-transform:uppercase;padding:12px 8px;
+  border:1.5px solid var(--gris);border-radius:10px;background:#fff;
+  cursor:pointer;text-align:center;color:var(--suave);
+  transition:border-color .15s,background .15s,color .15s;line-height:1.4;
+}
+.op-btn:hover{border-color:var(--naranja);color:var(--naranja);}
+.op-btn.activo{background:var(--naranja);border-color:var(--naranja);color:#fff;}
+.op-btn small{display:block;font-size:0.65rem;font-weight:300;margin-top:3px;opacity:.85;}
+
+/* CAMPO */
+.campo-det{margin-top:16px;}
+.campo-det:first-child{margin-top:0;}
+.campo-det label{display:block;font-size:0.72rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--suave);margin-bottom:8px;}
+
+/* STEPPER AMARILLAS */
+.stepper-amarillas{display:flex;align-items:center;gap:10px;}
+.stepper-amarillas button{
+  width:36px;height:36px;border-radius:50%;
+  border:1.5px solid var(--naranja);background:#fff;
+  font-size:1.1rem;font-weight:700;cursor:pointer;
+  color:var(--naranja);transition:background .15s,color .15s;
+  font-family:'Futura',sans-serif;
+}
+.stepper-amarillas button:hover{background:var(--naranja);color:#fff;}
+.stepper-amarillas .val-am{font-size:1.4rem;font-weight:700;width:36px;text-align:center;}
+.tarjeta-amarilla{font-size:1.1rem;}
+
+/* LLEGADA */
+.llegada-opciones{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.opcion-llegada{
+  font-family:'Futura',sans-serif;font-weight:700;font-size:0.75rem;
+  letter-spacing:.5px;text-transform:uppercase;padding:13px 8px;
+  border:1.5px solid var(--gris);border-radius:10px;background:#fff;
+  cursor:pointer;text-align:center;color:var(--suave);
+  transition:border-color .15s,background .15s,color .15s;
+}
+.opcion-llegada:hover{border-color:var(--naranja);color:var(--naranja);}
+.opcion-llegada.activo{background:var(--naranja);border-color:var(--naranja);color:#fff;}
+
+/* GENERAR */
+.generar-btn{
+  display:block;width:100%;margin-top:24px;
+  font-family:'Futura',sans-serif;font-weight:700;
+  font-size:0.88rem;letter-spacing:2px;text-transform:uppercase;
+  padding:17px;border:none;border-radius:12px;
+  background:var(--naranja);color:#fff;cursor:pointer;
+  box-shadow:0 4px 16px rgba(245,156,0,0.3);
+  transition:opacity .15s,transform .1s;
+}
+.generar-btn:hover{opacity:.9;}
+.generar-btn:active{transform:translateY(2px);box-shadow:none;}
+.generar-btn:disabled{opacity:.3;cursor:not-allowed;}
+.ayuda{text-align:center;font-size:0.76rem;color:var(--suave);margin-top:8px;}
+
+/* RESULTADO CARD */
+.resultado{display:none;margin-top:28px;}
+.resultado.visible{display:block;}
+.tarjeta-compartir{
+  background:linear-gradient(160deg,var(--amarillo) 0%,var(--naranja) 55%,var(--rojizo) 100%);
+  border-radius:18px;padding:24px 20px 20px;
+  box-shadow:0 6px 22px rgba(245,156,0,0.28);
+}
+.tc-header{text-align:center;margin-bottom:14px;}
+.tc-emoji{font-size:36px;margin-bottom:6px;}
+.tc-titulo{font-weight:700;font-size:0.9rem;letter-spacing:2px;text-transform:uppercase;color:#fff;}
+.tc-nombre{font-weight:300;font-size:0.8rem;color:rgba(255,255,255,0.88);margin-top:3px;}
+.tc-cuerpo{background:rgba(255,255,255,0.94);border-radius:12px;padding:16px;}
+.tc-versus{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;padding-bottom:14px;border-bottom:1px dashed var(--gris);}
+.tc-equipo{text-align:center;flex:1;}
+.tc-bandera{display:block;width:44px;height:auto;margin:0 auto 4px;border-radius:3px;box-shadow:0 1px 4px rgba(0,0,0,0.15);}
+.tc-pais{font-size:0.7rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--suave);margin-top:3px;}
+.tc-marcador-final{font-weight:700;font-size:2.2rem;color:var(--rojizo);letter-spacing:4px;text-align:center;}
+.tc-sub{font-size:0.7rem;color:var(--suave);margin-top:4px;text-align:center;}
+.tc-fila{display:flex;justify-content:space-between;align-items:center;padding:5px 0;font-size:0.82rem;border-bottom:1px solid rgba(0,0,0,0.05);}
+.tc-fila:last-child{border-bottom:none;}
+.tc-fila span:first-child{color:var(--suave);font-weight:300;}
+.tc-fila strong{color:var(--tinta);font-weight:700;text-align:right;max-width:60%;}
+.tc-badge{
+  margin-top:12px;padding:10px;border-radius:8px;text-align:center;
+  background:linear-gradient(135deg,var(--amarillo),var(--naranja));
+  font-weight:700;font-size:0.82rem;color:#fff;letter-spacing:.5px;
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+/* ACCIONES */
+.acciones{display:flex;flex-direction:column;gap:10px;margin-top:14px;}
+.accion-btn{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  font-family:'Futura',sans-serif;font-weight:700;
+  font-size:0.78rem;letter-spacing:1.5px;text-transform:uppercase;
+  padding:14px;border-radius:10px;cursor:pointer;
+  text-decoration:none;transition:opacity .15s;border:none;
+}
+.accion-btn.whatsapp{background:#25D366;color:#fff;}
+.accion-btn.imagen{background:#fff;color:var(--naranja);border:1.5px solid var(--naranja);}
+.accion-btn.reiniciar{background:none;border:1px dashed var(--gris);color:var(--suave);font-size:0.72rem;padding:11px;}
 
-body {
-  font-family: 'Futura', sans-serif;
-  font-weight: 400;
-  background: var(--fondo);
-  color: var(--tinta);
-  min-height: 100vh;
-}
-
-/* ===== HERO ===== */
-.hero {
-  background: linear-gradient(160deg, var(--amarillo) 0%, var(--naranja) 60%, var(--rojizo) 100%);
-  padding: 44px 20px 60px;
-  text-align: center;
-  position: relative;
-}
-.hero-emoji {
-  font-size: 52px;
-  display: block;
-  margin-bottom: 12px;
-  line-height: 1;
-}
-.hero h1 {
-  font-weight: 700;
-  font-size: 1.6rem;
-  color: #fff;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  line-height: 1.25;
-}
-.hero-sub {
-  font-weight: 300;
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.85);
-  margin-top: 6px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-}
-.hero-banderas {
-  font-size: 1.4rem;
-  margin-top: 10px;
-  letter-spacing: 6px;
-}
-.hero-wave {
-  position: absolute;
-  bottom: -1px; left: 0; right: 0;
-}
-
-/* ===== GLOBO ===== */
-.globo-wrap { display: flex; justify-content: center; padding: 22px 16px 0; }
-.globo {
-  background: #fff;
-  border: 1.5px solid var(--gris);
-  border-radius: 12px;
-  padding: 12px 18px;
-  font-size: 0.88rem;
-  color: var(--suave);
-  max-width: 360px;
-  text-align: center;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-  position: relative;
-}
-.globo::before {
-  content: '';
-  position: absolute;
-  top: -9px; left: 50%;
-  transform: translateX(-50%);
-  border: 9px solid transparent;
-  border-bottom-color: var(--gris);
-}
-.globo::after {
-  content: '';
-  position: absolute;
-  top: -6px; left: 50%;
-  transform: translateX(-50%);
-  border: 7px solid transparent;
-  border-bottom-color: #fff;
-  z-index: 1;
-}
-
-/* ===== WRAP ===== */
-.wrap { max-width: 500px; margin: 0 auto; padding: 16px 16px 80px; }
-
-.seccion { margin-top: 22px; }
-
-.etiqueta {
-  font-weight: 700;
-  font-size: 0.72rem;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
-  color: var(--naranja);
-  margin-bottom: 10px;
-}
-
-/* ===== TARJETA ===== */
-.tarjeta {
-  background: #fff;
-  border: 1.5px solid var(--gris);
-  border-radius: var(--radio);
-  padding: 18px;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
-}
-
-/* ===== INPUT ===== */
-.input-nombre {
-  width: 100%;
-  font-family: 'Futura', sans-serif;
-  font-size: 1rem;
-  padding: 13px 16px;
-  border: 1.5px solid var(--gris);
-  border-radius: 10px;
-  background: var(--fondo);
-  color: var(--tinta);
-  outline: none;
-  transition: border-color .2s;
-}
-.input-nombre:focus { border-color: var(--naranja); background: #fff; }
-.contador-caracteres {
-  text-align: right;
-  font-size: 0.72rem;
-  color: var(--suave);
-  opacity: 0.6;
-  margin-top: 5px;
-}
-
-/* ===== MODOS ===== */
-.modos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.modo-btn {
-  font-family: 'Futura', sans-serif;
-  font-weight: 700;
-  font-size: 0.8rem;
-  letter-spacing: .8px;
-  text-transform: uppercase;
-  border: 1.5px solid var(--gris);
-  border-radius: var(--radio);
-  padding: 20px 10px 16px;
-  background: #fff;
-  cursor: pointer;
-  text-align: center;
-  color: var(--tinta);
-  transition: border-color .15s, background .15s, transform .1s;
-}
-.modo-btn .emoji-modo { display: block; font-size: 1.9rem; margin-bottom: 8px; }
-.modo-btn small {
-  display: block;
-  font-weight: 300;
-  font-size: 0.72rem;
-  text-transform: none;
-  letter-spacing: 0;
-  margin-top: 4px;
-  color: var(--suave);
-}
-.modo-btn:hover { border-color: var(--naranja); transform: translateY(-2px); }
-.modo-btn.activo {
-  background: var(--naranja);
-  border-color: var(--naranja);
-  color: #fff;
-}
-.modo-btn.activo small { color: rgba(255,255,255,0.8); }
-
-/* ===== ACORDEÓN ===== */
-.acordeon { display: flex; flex-direction: column; gap: 10px; }
-
-.partido {
-  background: #fff;
-  border: 1.5px solid var(--gris);
-  border-radius: var(--radio);
-  overflow: hidden;
-  transition: border-color .2s;
-}
-.partido.completado { border-color: var(--naranja); }
-.partido.bloqueado { opacity: 0.45; }
-
-.partido-cabecera {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 14px 16px;
-  cursor: pointer;
-  user-select: none;
-}
-.num-partido {
-  font-weight: 700;
-  font-size: 0.85rem;
-  color: #fff;
-  background: var(--naranja);
-  border-radius: 50%;
-  width: 34px; height: 34px;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-}
-.partido.completado .num-partido { background: #2E7D32; }
-
-.partido-info { flex: 1; min-width: 0; }
-.partido-titulo { font-weight: 700; font-size: 0.9rem; }
-.partido-fecha { font-size: 0.72rem; font-weight: 300; color: var(--suave); margin-top: 2px; }
-.partido-resumen { font-size: 0.78rem; font-weight: 700; color: var(--naranja); margin-top: 3px; }
-
-.chevron { font-size: 0.9rem; color: var(--naranja); transition: transform .25s; flex-shrink: 0; }
-.partido.abierto .chevron { transform: rotate(180deg); }
-
-.partido-cuerpo { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
-.partido.abierto .partido-cuerpo { max-height: 900px; }
-.partido-cuerpo-inner { padding: 0 16px 20px; border-top: 1px solid var(--gris); }
-
-/* ===== MARCADOR ===== */
-.marcador-fila {
-  display: flex; align-items: center; justify-content: center;
-  gap: 12px; margin: 18px 0 6px;
-}
-.equipo-marcador { text-align: center; flex: 1; }
-.equipo-nombre {
-  font-size: 0.72rem; font-weight: 700; letter-spacing: 1px;
-  text-transform: uppercase; color: var(--suave); margin-bottom: 10px;
-}
-.stepper { display: flex; align-items: center; justify-content: center; gap: 8px; }
-.stepper button {
-  width: 40px; height: 40px; border-radius: 50%;
-  border: 1.5px solid var(--naranja);
-  background: #fff; font-family: 'Futura', sans-serif;
-  font-size: 1.2rem; font-weight: 700; cursor: pointer;
-  color: var(--naranja); transition: background .15s, color .15s;
-}
-.stepper button:hover { background: var(--naranja); color: #fff; }
-.stepper .valor {
-  font-family: 'Futura', sans-serif; font-size: 2rem;
-  font-weight: 700; width: 42px; text-align: center;
-}
-.vs {
-  font-weight: 700; font-size: 0.75rem; letter-spacing: 1px;
-  color: var(--suave); align-self: flex-end; margin-bottom: 20px;
-}
-
-/* ===== DETALLES ===== */
-.mas-detalles-btn {
-  display: block; margin: 14px auto 0;
-  background: none; border: 1px dashed var(--gris);
-  color: var(--suave); font-family: 'Futura', sans-serif;
-  font-weight: 700; font-size: 0.72rem; letter-spacing: 1px;
-  text-transform: uppercase; padding: 9px 18px;
-  border-radius: 50px; cursor: pointer;
-  transition: border-color .15s, color .15s;
-}
-.mas-detalles-btn:hover { border-color: var(--naranja); color: var(--naranja); }
-
-.detalles { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
-.detalles.abierto { max-height: 600px; }
-.detalles-inner { padding-top: 14px; display: flex; flex-direction: column; gap: 14px; }
-
-.campo-detalle label {
-  display: block; font-size: 0.72rem; font-weight: 700;
-  letter-spacing: .8px; text-transform: uppercase;
-  color: var(--suave); margin-bottom: 7px;
-}
-select.detalle-select {
-  width: 100%; font-family: 'Futura', sans-serif; font-size: 0.88rem;
-  padding: 10px 12px; border: 1.5px solid var(--gris);
-  border-radius: 10px; background: var(--fondo); color: var(--tinta); outline: none;
-}
-select.detalle-select:focus { border-color: var(--naranja); }
-
-.si-no { display: flex; gap: 10px; }
-.si-no button {
-  flex: 1; font-family: 'Futura', sans-serif; font-weight: 700;
-  font-size: 0.75rem; letter-spacing: .8px; text-transform: uppercase;
-  padding: 10px; border: 1.5px solid var(--gris);
-  border-radius: 10px; background: #fff; cursor: pointer;
-  color: var(--suave); transition: background .15s, border-color .15s, color .15s;
-}
-.si-no button.activo { background: var(--naranja); border-color: var(--naranja); color: #fff; }
-
-/* ===== CONTINUAR ===== */
-.continuar-btn {
-  display: block; width: 100%; margin-top: 18px;
-  font-family: 'Futura', sans-serif; font-weight: 700;
-  font-size: 0.8rem; letter-spacing: 1.5px; text-transform: uppercase;
-  padding: 14px; border: none; border-radius: 10px;
-  background: var(--naranja); color: #fff; cursor: pointer;
-  transition: opacity .15s, transform .1s;
-}
-.continuar-btn:hover { opacity: 0.88; }
-.continuar-btn:active { transform: translateY(1px); }
-.continuar-btn:disabled { opacity: 0.3; cursor: not-allowed; }
-
-/* ===== LLEGADA ===== */
-.opciones-llegada { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.opcion-llegada {
-  font-family: 'Futura', sans-serif; font-weight: 700;
-  font-size: 0.75rem; letter-spacing: .5px; text-transform: uppercase;
-  padding: 13px 8px; border: 1.5px solid var(--gris);
-  border-radius: 10px; background: #fff; cursor: pointer;
-  text-align: center; color: var(--suave);
-  transition: border-color .15s, background .15s, color .15s;
-}
-.opcion-llegada:hover { border-color: var(--naranja); color: var(--naranja); }
-.opcion-llegada.activo { background: var(--naranja); border-color: var(--naranja); color: #fff; }
-
-/* ===== GENERAR ===== */
-.generar-btn {
-  display: block; width: 100%; margin-top: 24px;
-  font-family: 'Futura', sans-serif; font-weight: 700;
-  font-size: 0.88rem; letter-spacing: 2px; text-transform: uppercase;
-  padding: 17px; border: none; border-radius: 12px;
-  background: var(--naranja); color: #fff; cursor: pointer;
-  box-shadow: 0 4px 16px rgba(245,156,0,0.3);
-  transition: opacity .15s, transform .1s;
-}
-.generar-btn:hover { opacity: 0.9; }
-.generar-btn:active { transform: translateY(2px); box-shadow: none; }
-.generar-btn:disabled { opacity: 0.3; cursor: not-allowed; }
-
-.ayuda-generar {
-  text-align: center; font-size: 0.76rem;
-  color: var(--suave); margin-top: 8px;
-}
-
-/* ===== RESULTADO ===== */
-.resultado { display: none; margin-top: 28px; }
-.resultado.visible { display: block; }
-
-.tarjeta-compartir {
-  background: linear-gradient(160deg, var(--amarillo) 0%, var(--naranja) 55%, var(--rojizo) 100%);
-  border-radius: 18px; padding: 24px 20px 20px;
-  box-shadow: 0 6px 22px rgba(245,156,0,0.28);
-}
-.tc-inner { position: relative; z-index: 2; }
-.tc-header { text-align: center; margin-bottom: 14px; }
-.tc-emoji { font-size: 40px; margin-bottom: 6px; }
-.tc-titulo {
-  font-weight: 700; font-size: 0.95rem;
-  letter-spacing: 2px; text-transform: uppercase; color: #fff;
-}
-.tc-nombre { font-weight: 300; font-size: 0.82rem; color: rgba(255,255,255,0.88); margin-top: 3px; }
-
-.tc-cuerpo { background: rgba(255,255,255,0.94); border-radius: 12px; padding: 14px 16px; }
-.tc-partido { padding: 8px 0; border-bottom: 1px dashed var(--gris); }
-.tc-partido:last-of-type { border-bottom: none; }
-.tc-partido-marcador { font-weight: 700; font-size: 0.92rem; color: var(--rojizo); }
-.tc-partido-detalle { font-size: 0.75rem; font-weight: 300; color: var(--suave); margin-top: 3px; }
-.tc-final { margin-top: 12px; padding-top: 12px; border-top: 1.5px solid var(--gris); display: flex; flex-direction: column; gap: 4px; font-size: 0.85rem; }
-.tc-final strong { color: var(--rojizo); }
-
-/* ===== ACCIONES ===== */
-.acciones-finales { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
-.accion-btn {
-  display: flex; align-items: center; justify-content: center; gap: 10px;
-  font-family: 'Futura', sans-serif; font-weight: 700;
-  font-size: 0.78rem; letter-spacing: 1.5px; text-transform: uppercase;
-  padding: 14px; border-radius: 10px; cursor: pointer;
-  text-decoration: none; transition: opacity .15s; border: none;
-}
-.accion-btn:active { opacity: 0.8; }
-.accion-btn.whatsapp { background: #25D366; color: #fff; }
-.accion-btn.imagen { background: #fff; color: var(--naranja); border: 1.5px solid var(--naranja); }
-.accion-btn.reiniciar { background: none; border: 1px dashed var(--gris); color: var(--suave); font-size: 0.72rem; padding: 11px; }
-
-/* ===== FOOTER ===== */
-footer { text-align: center; margin-top: 36px; padding: 16px; }
-.footer-txt { font-size: 0.72rem; font-weight: 300; letter-spacing: .8px; color: var(--suave); opacity: 0.6; text-transform: uppercase; }
-
-.oculto { display: none !important; }
-@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
-
-@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+footer{text-align:center;margin-top:36px;padding:16px;}
+.footer-txt{font-size:0.72rem;font-weight:300;letter-spacing:.8px;color:var(--suave);opacity:.6;text-transform:uppercase;}
+.oculto{display:none!important;}
+.sep{height:1px;background:var(--gris);margin:16px 0;}
 </style>
 </head>
 <body>
 
 <!-- HERO -->
 <header class="hero">
-  <div class="hero-content">
-    <div class="hero-emoji" id="pollito-header">🐥</div>
-    <h1>Mi Pronóstico<br>Mundial 2026</h1>
-    <p class="hero-sub">¡Vamos Colombia!</p>
-    <p class="hero-banderas">🇨🇴 🏆 ⚽</p>
-  </div>
+  <span class="hero-emoji">🐥</span>
+  <h1>Octavos de Final<br>Mundial 2026</h1>
+  <p class="hero-sub">¿Cómo le va a ir a Colombia?</p>
   <svg class="hero-wave" viewBox="0 0 1440 48" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-    <path d="M0 48 C360 0 1080 0 1440 48 L1440 48 L0 48 Z" fill="#ffffff"/>
+    <path d="M0 48 C360 0 1080 0 1440 48 L1440 48 L0 48 Z" fill="#fafafa"/>
   </svg>
 </header>
 
-<!-- GLOBO POLLITO -->
+<!-- GLOBO -->
 <div class="globo-wrap">
-  <div class="globo" id="mensaje-pollito">
-    ¡Hola! Soy de Incu. Antes de empezar, ¿cómo te llamás?
+  <div class="globo">
+    ¡Llegó el momento! 🇨🇴 Colombia en octavos. ¿Cuál es tu pronóstico?
   </div>
 </div>
 
 <div class="wrap">
 
+  <!-- VERSUS -->
+  <div class="versus-banner">
+    <div class="versus-equipos">
+      <div class="equipo-vs">
+        <img class="bandera-grande" src="https://flagcdn.com/w80/ch.png" alt="Suiza">
+        <span class="nombre-equipo">Suiza</span>
+      </div>
+      <div class="vs-separador">VS</div>
+      <div class="equipo-vs">
+        <img class="bandera-grande" src="https://flagcdn.com/w80/co.png" alt="Colombia">
+        <span class="nombre-equipo">Colombia</span>
+      </div>
+    </div>
+    <p class="dato-partido">
+      <strong>Martes 7 de julio · 4:00 PM ET</strong><br>
+      BC Place · Vancouver · Octavos de Final
+    </p>
+  </div>
+
   <!-- NOMBRE -->
   <section class="seccion">
     <p class="etiqueta">✏️ Tu nombre o apodo</p>
     <div class="tarjeta">
-      <input
-        type="text"
-        id="input-nombre"
-        class="input-nombre"
-        placeholder="Ej: El Llorón del grupo 😂"
-        maxlength="20"
-        autocomplete="off"
-      >
-      <div class="contador-caracteres"><span id="contador-nombre">0</span>/20</div>
+      <input type="text" id="input-nombre" class="input-texto"
+        placeholder="Ej: El más positivo del grupo 🙌"
+        maxlength="20" autocomplete="off">
+      <div class="contador-caracteres"><span id="contador">0</span>/20</div>
     </div>
   </section>
 
-  <!-- MODO -->
-  <section class="seccion" id="seccion-modo">
-    <p class="etiqueta">🎮 ¿Cómo quieres jugar?</p>
-    <div class="modos">
-      <button class="modo-btn" id="btn-modo-rapido" type="button">
-        <span class="emoji-modo">🚀</span>
-        Pronóstico Rápido
-        <small>Solo lo esencial</small>
-      </button>
-      <button class="modo-btn" id="btn-modo-completo" type="button">
-        <span class="emoji-modo">🎉</span>
-        Pronóstico Completo
-        <small>Con todos los detalles</small>
-      </button>
-    </div>
-  </section>
-
-  <!-- PARTIDOS -->
-  <section class="seccion oculto" id="seccion-partidos">
-    <p class="etiqueta">⚽ Fase de grupos — Grupo K</p>
-    <div class="acordeon" id="acordeon-partidos"></div>
-  </section>
-
-  <!-- SECCIÓN FINAL -->
-  <section class="seccion oculto" id="seccion-final">
-    <p class="etiqueta">🏆 Tu pronóstico final</p>
+  <!-- MARCADOR -->
+  <section class="seccion">
+    <p class="etiqueta">⚽ Tu marcador</p>
     <div class="tarjeta">
-      <p style="font-weight:700; font-size:0.85rem; letter-spacing:.5px; margin-bottom:12px;">
-        ¿Hasta dónde llega Colombia?
-      </p>
-      <div class="opciones-llegada" id="opciones-llegada">
-        <button class="opcion-llegada" data-valor="Fase de grupos" type="button">Fase de grupos</button>
-        <button class="opcion-llegada" data-valor="Octavos" type="button">Octavos</button>
-        <button class="opcion-llegada" data-valor="Cuartos" type="button">Cuartos de final</button>
-        <button class="opcion-llegada" data-valor="Semifinal" type="button">Semifinal</button>
-        <button class="opcion-llegada" data-valor="Final" type="button">Final</button>
-        <button class="opcion-llegada" data-valor="Campeón 🏆" type="button">¡Campeón! 🏆</button>
-      </div>
-
-      <button class="mas-detalles-btn oculto" id="btn-mas-detalles-final" type="button">
-        ➕ Más detalles
-      </button>
-
-      <div class="detalles" id="detalles-final">
-        <div class="detalles-inner">
-          <div class="campo-detalle">
-            <label for="select-goleador-torneo">Goleador de Colombia en el torneo</label>
-            <select class="detalle-select" id="select-goleador-torneo">
-              <option value="">Sin elegir</option>
-            </select>
-          </div>
-          <div class="campo-detalle">
-            <label>Total de goles de Colombia</label>
-            <div class="stepper">
-              <button type="button" data-accion="restar" data-objetivo="goles-total">−</button>
-              <span class="valor" id="goles-total">0</span>
-              <button type="button" data-accion="sumar" data-objetivo="goles-total">+</button>
-            </div>
-          </div>
-          <div class="campo-detalle">
-            <label for="select-campeon">Campeón del Mundial</label>
-            <select class="detalle-select" id="select-campeon">
-              <option value="">Sin elegir</option>
-              <option value="Colombia 🇨🇴">Colombia 🇨🇴</option>
-              <option value="Argentina">Argentina</option>
-              <option value="Brasil">Brasil</option>
-              <option value="Francia">Francia</option>
-              <option value="España">España</option>
-              <option value="Portugal">Portugal</option>
-              <option value="Inglaterra">Inglaterra</option>
-              <option value="Alemania">Alemania</option>
-              <option value="Otro">Otro</option>
-            </select>
+      <div class="marcador-titulo">¿Cómo termina el partido?</div>
+      <div class="marcador-fila">
+        <div class="equipo-marcador">
+          <img class="equipo-bandera" src="https://flagcdn.com/w80/ch.png" alt="Suiza">
+          <div class="equipo-nombre">Suiza</div>
+          <div class="stepper">
+            <button type="button" onclick="cambiarGol('sui',-1)">−</button>
+            <span class="valor" id="goles-sui">0</span>
+            <button type="button" onclick="cambiarGol('sui',1)">+</button>
           </div>
         </div>
+        <div class="vs">VS</div>
+        <div class="equipo-marcador">
+          <img class="equipo-bandera" src="https://flagcdn.com/w80/co.png" alt="Colombia">
+          <div class="equipo-nombre">Colombia</div>
+          <div class="stepper">
+            <button type="button" onclick="cambiarGol('col',-1)">−</button>
+            <span class="valor" id="goles-col">0</span>
+            <button type="button" onclick="cambiarGol('col',1)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CÓMO SE DEFINE -->
+      <div class="sep"></div>
+      <div class="campo-det">
+        <label>¿Cómo se define?</label>
+        <div class="opciones-grid col3">
+          <button class="op-btn" type="button" data-tipo="regular" onclick="selTipo(this)">
+            90 min<small>Tiempo regular</small>
+          </button>
+          <button class="op-btn" type="button" data-tipo="prorroga" onclick="selTipo(this)">
+            Prórroga<small>Tiempo extra</small>
+          </button>
+          <button class="op-btn" type="button" data-tipo="penales" onclick="selTipo(this)">
+            Penales<small>Definición</small>
+          </button>
+        </div>
+      </div>
+
+      <!-- SI PENALES: quién gana -->
+      <div id="bloque-penales" class="campo-det oculto">
+        <label>¿Quién gana en penales?</label>
+        <div class="opciones-grid col2">
+          <button class="op-btn" type="button" onclick="selPenal('sui', this)">🇨🇭 Suiza</button>
+          <button class="op-btn" type="button" onclick="selPenal('col', this)">🇨🇴 Colombia</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DETALLES -->
+  <section class="seccion">
+    <p class="etiqueta">🎯 Detalles del partido</p>
+    <div class="tarjeta">
+
+      <!-- GOLEADOR LIBRE -->
+      <div class="campo-det">
+        <label>⚽ Primer goleador del partido</label>
+        <input type="text" id="input-goleador" class="input-texto"
+          placeholder="Ej: Luis Díaz, Embolo, autogol..."
+          maxlength="30" autocomplete="off">
+      </div>
+
+      <div class="sep"></div>
+
+      <!-- COLOMBIA EN OCTAVOS -->
+      <div class="campo-det">
+        <label>🇨🇴 ¿Colombia clasifica a cuartos?</label>
+        <div class="opciones-grid col2">
+          <button class="op-btn" type="button" onclick="selCuartos(true, this)">✅ Sí clasifica</button>
+          <button class="op-btn" type="button" onclick="selCuartos(false, this)">❌ Eliminada</button>
+        </div>
+      </div>
+
+      <div class="sep"></div>
+
+      <!-- TARJETAS AMARILLAS -->
+      <div class="campo-det">
+        <label>🟨 Tarjetas amarillas en el partido</label>
+        <div style="display:flex;gap:24px;align-items:center;margin-top:4px;">
+          <div>
+            <div style="font-size:0.68rem;color:var(--suave);margin-bottom:8px;letter-spacing:.5px;">🇨🇭 SUIZA</div>
+            <div class="stepper-amarillas">
+              <button type="button" onclick="cambiarAmarilla('sui',-1)">−</button>
+              <span class="val-am" id="am-sui">0</span>
+              <button type="button" onclick="cambiarAmarilla('sui',1)">+</button>
+            </div>
+          </div>
+          <div style="font-size:1.3rem;color:var(--suave);padding-top:20px;">🟨</div>
+          <div>
+            <div style="font-size:0.68rem;color:var(--suave);margin-bottom:8px;letter-spacing:.5px;">🇨🇴 COLOMBIA</div>
+            <div class="stepper-amarillas">
+              <button type="button" onclick="cambiarAmarilla('col',-1)">−</button>
+              <span class="val-am" id="am-col">0</span>
+              <button type="button" onclick="cambiarAmarilla('col',1)">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LLEGADA COLOMBIA -->
+  <section class="seccion">
+    <p class="etiqueta">🌍 ¿Hasta dónde llega Colombia?</p>
+    <div class="tarjeta">
+      <div class="llegada-opciones" id="opciones-llegada">
+        <button class="opcion-llegada" data-v="Eliminada en octavos" type="button" onclick="selLlegada(this)">Octavos 😢</button>
+        <button class="opcion-llegada" data-v="Cuartos de final" type="button" onclick="selLlegada(this)">Cuartos 💪</button>
+        <button class="opcion-llegada" data-v="Semifinal" type="button" onclick="selLlegada(this)">Semifinal 🔥</button>
+        <button class="opcion-llegada" data-v="Final" type="button" onclick="selLlegada(this)">La final 🤯</button>
+        <button class="opcion-llegada" data-v="Campeón 🏆" type="button" onclick="selLlegada(this)"
+          style="grid-column:span 2;background:linear-gradient(135deg,var(--amarillo),var(--naranja));border-color:var(--naranja);color:#fff;">
+          🏆 ¡Campeones del Mundo!
+        </button>
       </div>
     </div>
   </section>
 
   <!-- GENERAR -->
-  <button class="generar-btn oculto" id="btn-generar" type="button" disabled>
-    ⚽ Generar mi pronóstico
+  <button class="generar-btn" id="btn-generar" type="button" disabled onclick="generarPronostico()">
+    🇨🇴 Generar mi pronóstico
   </button>
-  <p class="ayuda-generar oculto" id="ayuda-generar">
-    Completa los 3 partidos y elige hasta dónde llega Colombia
-  </p>
+  <p class="ayuda">Completa el marcador, cómo se define y hasta dónde llega Colombia</p>
 
   <!-- RESULTADO -->
   <section class="resultado" id="resultado">
     <p class="etiqueta">🎊 ¡Tu pronóstico está listo!</p>
-
     <div class="tarjeta-compartir" id="tarjeta-compartir">
-      <div class="tc-inner">
-        <div class="tc-header">
-          <div class="tc-emoji">🐥🇨🇴</div>
-          <p class="tc-titulo">Mi Pronóstico Mundial 2026</p>
-          <p class="tc-nombre" id="tc-nombre">Por: —</p>
+      <div class="tc-header">
+        <div class="tc-emoji">🐥🇨🇴</div>
+        <p class="tc-titulo">Pronóstico · Octavos 2026</p>
+        <p class="tc-nombre" id="tc-nombre">Por: —</p>
+      </div>
+      <div class="tc-cuerpo">
+        <div class="tc-versus">
+          <div class="tc-equipo">
+            <img class="tc-bandera" src="https://flagcdn.com/w80/ch.png" alt="Suiza">
+            <div class="tc-pais">Suiza</div>
+          </div>
+          <div style="text-align:center;">
+            <div class="tc-marcador-final" id="tc-marcador">0 – 0</div>
+            <div class="tc-sub" id="tc-tipo-def"></div>
+          </div>
+          <div class="tc-equipo">
+            <img class="tc-bandera" src="https://flagcdn.com/w80/co.png" alt="Colombia">
+            <div class="tc-pais">Colombia</div>
+          </div>
         </div>
-        <div class="tc-cuerpo" id="tc-cuerpo"></div>
+        <div id="tc-detalles"></div>
+        <div class="tc-badge" id="tc-llegada">Colombia: —</div>
       </div>
     </div>
 
-    <div class="acciones-finales">
+    <div class="acciones">
       <a class="accion-btn whatsapp" id="btn-whatsapp" href="#" target="_blank" rel="noopener">
         💬 Enviar por WhatsApp
       </a>
-      <button class="accion-btn imagen" id="btn-imagen" type="button">
+      <button class="accion-btn imagen" type="button" onclick="descargarImagen()">
         🖼️ Descargar imagen
       </button>
-      <button class="accion-btn reiniciar" id="btn-reiniciar" type="button">
+      <button class="accion-btn reiniciar" type="button" onclick="location.reload()">
         🔄 Hacer otro pronóstico
       </button>
     </div>
   </section>
 
   <footer>
-    <p class="footer-txt">🐥 Mundial 2026 · ¡Vamos Colombia! · SanWeb</p>
+    <p class="footer-txt">🐥 Mundial 2026 · ¡Vamos Colombia! · Incubant</p>
   </footer>
-
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script src="app.js"></script>
+<script>
+const e = {
+  nombre:'', golesSui:0, golesCol:0,
+  tipoDef:'', penalGanador:'',
+  goleador:'', clasificaCuartos:null,
+  amSui:0, amCol:0, llegada:''
+};
+
+// NOMBRE
+document.getElementById('input-nombre').addEventListener('input',function(){
+  e.nombre = this.value;
+  document.getElementById('contador').textContent = this.value.length;
+  validar();
+});
+
+// GOLEADOR LIBRE
+document.getElementById('input-goleador').addEventListener('input',function(){
+  e.goleador = this.value.trim();
+});
+
+// GOLES
+function cambiarGol(eq, d){
+  if(eq==='sui'){ e.golesSui=Math.max(0,e.golesSui+d); document.getElementById('goles-sui').textContent=e.golesSui; }
+  else          { e.golesCol=Math.max(0,e.golesCol+d);  document.getElementById('goles-col').textContent=e.golesCol;  }
+  validar();
+}
+
+// TIPO DEFINICIÓN
+function selTipo(btn){
+  document.querySelectorAll('[data-tipo]').forEach(b=>b.classList.remove('activo'));
+  btn.classList.add('activo');
+  e.tipoDef = btn.dataset.tipo;
+  document.getElementById('bloque-penales').classList.toggle('oculto', e.tipoDef !== 'penales');
+  if(e.tipoDef !== 'penales'){ e.penalGanador=''; }
+  validar();
+}
+
+// PENALES
+function selPenal(eq, btn){
+  document.querySelectorAll('#bloque-penales .op-btn').forEach(b=>b.classList.remove('activo'));
+  btn.classList.add('activo');
+  e.penalGanador = eq;
+  validar();
+}
+
+// CUARTOS
+function selCuartos(val, btn){
+  document.querySelectorAll('#opciones-cuartos .op-btn, .campo-det .op-btn').forEach(b=>{
+    if(b.textContent.includes('clasifica')||b.textContent.includes('liminada')) b.classList.remove('activo');
+  });
+  btn.classList.add('activo');
+  e.clasificaCuartos = val;
+  validar();
+}
+
+// AMARILLAS
+function cambiarAmarilla(eq, d){
+  if(eq==='sui'){ e.amSui=Math.max(0,e.amSui+d); document.getElementById('am-sui').textContent=e.amSui; }
+  else          { e.amCol=Math.max(0,e.amCol+d);  document.getElementById('am-col').textContent=e.amCol;  }
+}
+
+// LLEGADA
+function selLlegada(btn){
+  document.querySelectorAll('.opcion-llegada').forEach(b=>b.classList.remove('activo'));
+  btn.classList.add('activo');
+  e.llegada = btn.dataset.v;
+  validar();
+}
+
+// VALIDAR BTN
+function validar(){
+  const penOk = e.tipoDef !== 'penales' || e.penalGanador !== '';
+  const ok = e.nombre.trim().length > 0 && e.tipoDef !== '' && e.llegada !== '' && penOk;
+  document.getElementById('btn-generar').disabled = !ok;
+}
+
+// GENERAR
+function generarPronostico(){
+  const nombre = e.nombre.trim() || 'Anónimo';
+  document.getElementById('tc-marcador').textContent = `${e.golesSui} – ${e.golesCol}`;
+  document.getElementById('tc-nombre').textContent = `Por: ${nombre}`;
+
+  let tipotxt = '';
+  if(e.tipoDef==='regular')  tipotxt = 'Tiempo regular ⏱️';
+  else if(e.tipoDef==='prorroga') tipotxt = 'Prórroga ⏰';
+  else if(e.tipoDef==='penales'){
+    const gp = e.penalGanador==='col' ? '🇨🇴 Colombia' : '🇨🇭 Suiza';
+    tipotxt = `Penales → ${gp} 🎯`;
+  }
+  document.getElementById('tc-tipo-def').textContent = tipotxt;
+
+  let html = '';
+  if(e.goleador) html += `<div class="tc-fila"><span>⚽ Primer goleador</span><strong>${e.goleador}</strong></div>`;
+  if(e.clasificaCuartos!==null) html += `<div class="tc-fila"><span>🏆 Clasifica a cuartos</span><strong>${e.clasificaCuartos?'✅ Sí':'❌ No'}</strong></div>`;
+  html += `<div class="tc-fila"><span>🟨 Amarillas Suiza / COL</span><strong>${e.amSui} / ${e.amCol}</strong></div>`;
+  document.getElementById('tc-detalles').innerHTML = html;
+
+  const esCampeon = e.llegada === 'Campeón 🏆';
+  document.getElementById('tc-llegada').textContent = esCampeon ? '🏆 ¡Colombia CAMPEÓN DEL MUNDO!' : `Colombia llega a: ${e.llegada}`;
+
+  // WhatsApp
+  let msg = `🐥🇨🇴 *MI PRONÓSTICO — Octavos Mundial 2026*\n`;
+  msg += `👤 ${nombre}\n\n`;
+  msg += `🇨🇭 Suiza *${e.golesSui} – ${e.golesCol}* Colombia 🇨🇴\n`;
+  msg += `⏱️ ${tipotxt}\n`;
+  if(e.goleador) msg += `⚽ Primer goleador: ${e.goleador}\n`;
+  if(e.clasificaCuartos!==null) msg += `🏆 ¿Cuartos?: ${e.clasificaCuartos?'Sí ✅':'No ❌'}\n`;
+  msg += `🟨 Amarillas: Suiza ${e.amSui} · Colombia ${e.amCol}\n`;
+  msg += `\n🌍 Colombia llega a: *${e.llegada}*\n`;
+  msg += `\n¡Vamos Colombia! 🇨🇴🔥`;
+  document.getElementById('btn-whatsapp').href = `https://wa.me/?text=${encodeURIComponent(msg)}`;
+
+  document.getElementById('resultado').classList.add('visible');
+  setTimeout(()=>document.getElementById('resultado').scrollIntoView({behavior:'smooth',block:'start'}),100);
+}
+
+// IMAGEN
+async function descargarImagen(){
+  const el = document.getElementById('tarjeta-compartir');
+  const canvas = await html2canvas(el,{scale:2,useCORS:true,backgroundColor:null});
+  const link = document.createElement('a');
+  link.download = 'pronostico-colombia-suiza.png';
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+}
+</script>
 </body>
 </html>
