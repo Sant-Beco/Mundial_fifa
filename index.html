@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🇨🇴 Colombia vs Suiza — Octavos 2026</title>
+<title>🏆 Final Mundial 2026 — España vs Argentina</title>
 <style>
 @font-face { font-family:'Futura'; src:url('assets/futura-light.ttf') format('truetype'); font-weight:300; }
 @font-face { font-family:'Futura'; src:url('assets/futura-book.ttf') format('truetype');  font-weight:400; }
@@ -12,15 +12,14 @@
 :root {
   --naranja:#F59C00; --amarillo:#FFCC00; --rojizo:#EB6608;
   --fondo:#FAFAFA; --gris:#E8E8E8; --tinta:#222; --suave:#666;
-  --verde:#2E7D32; --radio:14px;
+  --radio:14px;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{font-family:'Futura',sans-serif;font-weight:400;background:var(--fondo);color:var(--tinta);min-height:100vh;}
 
-/* HERO */
 .hero{
-  background:linear-gradient(160deg,var(--amarillo) 0%,var(--naranja) 60%,var(--rojizo) 100%);
+  background:linear-gradient(160deg,#c8102e 0%,#a50000 40%,#003087 100%);
   padding:36px 20px 56px; text-align:center; position:relative;
 }
 .hero-emoji{font-size:48px;display:block;margin-bottom:10px;line-height:1;}
@@ -28,7 +27,6 @@ body{font-family:'Futura',sans-serif;font-weight:400;background:var(--fondo);col
 .hero-sub{font-weight:300;font-size:0.8rem;color:rgba(255,255,255,0.88);margin-top:5px;letter-spacing:1.5px;text-transform:uppercase;}
 .hero-wave{position:absolute;bottom:-1px;left:0;right:0;}
 
-/* VERSUS BANNER */
 .versus-banner{
   background:#fff;border:1.5px solid var(--gris);border-radius:16px;
   padding:16px;margin:16px 0;text-align:center;
@@ -36,13 +34,19 @@ body{font-family:'Futura',sans-serif;font-weight:400;background:var(--fondo);col
 }
 .versus-equipos{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:10px;}
 .equipo-vs{text-align:center;flex:1;}
-.bandera-grande{display:block;width:64px;height:auto;margin:0 auto 8px;border-radius:4px;box-shadow:0 1px 4px rgba(0,0,0,0.15);}
-.nombre-equipo{font-weight:700;font-size:0.78rem;letter-spacing:1px;text-transform:uppercase;color:var(--tinta);}
-.vs-separador{font-weight:700;font-size:1.1rem;color:var(--suave);letter-spacing:2px;}
+.bandera-grande{display:block;width:72px;height:auto;margin:0 auto 8px;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,0.18);}
+.nombre-equipo{font-weight:700;font-size:0.85rem;letter-spacing:1px;text-transform:uppercase;color:var(--tinta);}
+.vs-separador{font-weight:700;font-size:1.4rem;color:var(--suave);letter-spacing:2px;}
 .dato-partido{font-size:0.72rem;font-weight:300;color:var(--suave);letter-spacing:.5px;}
-.dato-partido strong{font-weight:700;color:var(--naranja);}
+.dato-partido strong{font-weight:700;color:var(--rojizo);}
 
-/* GLOBO */
+.copa-badge{
+  display:inline-block;margin-top:8px;
+  background:linear-gradient(135deg,var(--amarillo),var(--naranja));
+  color:#fff;font-weight:700;font-size:0.72rem;letter-spacing:1px;
+  padding:4px 14px;border-radius:50px;text-transform:uppercase;
+}
+
 .globo-wrap{display:flex;justify-content:center;padding:16px 16px 0;}
 .globo{
   background:#fff;border:1.5px solid var(--gris);border-radius:12px;
@@ -53,42 +57,36 @@ body{font-family:'Futura',sans-serif;font-weight:400;background:var(--fondo);col
 .globo::before{content:'';position:absolute;top:-9px;left:50%;transform:translateX(-50%);border:9px solid transparent;border-bottom-color:var(--gris);}
 .globo::after{content:'';position:absolute;top:-6px;left:50%;transform:translateX(-50%);border:7px solid transparent;border-bottom-color:#fff;z-index:1;}
 
-/* WRAP */
 .wrap{max-width:500px;margin:0 auto;padding:16px 16px 80px;}
 .seccion{margin-top:20px;}
-.etiqueta{font-weight:700;font-size:0.72rem;letter-spacing:1.8px;text-transform:uppercase;color:var(--naranja);margin-bottom:10px;}
-
-/* TARJETA */
+.etiqueta{font-weight:700;font-size:0.72rem;letter-spacing:1.8px;text-transform:uppercase;color:var(--rojizo);margin-bottom:10px;}
 .tarjeta{background:#fff;border:1.5px solid var(--gris);border-radius:var(--radio);padding:18px;box-shadow:0 1px 6px rgba(0,0,0,0.05);}
 
-/* INPUT TEXTO */
 .input-texto{
   width:100%;font-family:'Futura',sans-serif;font-size:0.95rem;
   padding:12px 14px;border:1.5px solid var(--gris);border-radius:10px;
   background:var(--fondo);color:var(--tinta);outline:none;transition:border-color .2s;
 }
-.input-texto:focus{border-color:var(--naranja);background:#fff;}
+.input-texto:focus{border-color:var(--rojizo);background:#fff;}
 .input-texto::placeholder{color:#bbb;}
 .contador-caracteres{text-align:right;font-size:0.72rem;color:var(--suave);opacity:.6;margin-top:5px;}
 
-/* MARCADOR */
 .marcador-titulo{font-weight:700;font-size:0.85rem;letter-spacing:.5px;margin-bottom:16px;text-align:center;}
 .marcador-fila{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:8px;}
 .equipo-marcador{text-align:center;flex:1;}
 .equipo-nombre{font-size:0.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--suave);margin-bottom:10px;}
-.equipo-bandera{display:block;width:48px;height:auto;margin:0 auto 8px;border-radius:3px;box-shadow:0 1px 4px rgba(0,0,0,0.12);}
+.equipo-bandera{display:block;width:52px;height:auto;margin:0 auto 8px;border-radius:3px;box-shadow:0 1px 6px rgba(0,0,0,0.15);}
 .stepper{display:flex;align-items:center;justify-content:center;gap:8px;}
 .stepper button{
-  width:40px;height:40px;border-radius:50%;
-  border:1.5px solid var(--naranja);background:#fff;
+  width:42px;height:42px;border-radius:50%;
+  border:1.5px solid var(--rojizo);background:#fff;
   font-family:'Futura',sans-serif;font-size:1.2rem;font-weight:700;
-  cursor:pointer;color:var(--naranja);transition:background .15s,color .15s;
+  cursor:pointer;color:var(--rojizo);transition:background .15s,color .15s;
 }
-.stepper button:hover{background:var(--naranja);color:#fff;}
+.stepper button:hover{background:var(--rojizo);color:#fff;}
 .stepper .valor{font-family:'Futura',sans-serif;font-size:2rem;font-weight:700;width:42px;text-align:center;}
 .vs{font-weight:700;font-size:0.75rem;letter-spacing:1px;color:var(--suave);align-self:flex-end;margin-bottom:20px;}
 
-/* OPCIONES BOTONES */
 .opciones-grid{display:grid;gap:10px;margin-top:10px;}
 .opciones-grid.col2{grid-template-columns:1fr 1fr;}
 .opciones-grid.col3{grid-template-columns:1fr 1fr 1fr;}
@@ -99,48 +97,48 @@ body{font-family:'Futura',sans-serif;font-weight:400;background:var(--fondo);col
   cursor:pointer;text-align:center;color:var(--suave);
   transition:border-color .15s,background .15s,color .15s;line-height:1.4;
 }
-.op-btn:hover{border-color:var(--naranja);color:var(--naranja);}
-.op-btn.activo{background:var(--naranja);border-color:var(--naranja);color:#fff;}
+.op-btn:hover{border-color:var(--rojizo);color:var(--rojizo);}
+.op-btn.activo{background:var(--rojizo);border-color:var(--rojizo);color:#fff;}
 .op-btn small{display:block;font-size:0.65rem;font-weight:300;margin-top:3px;opacity:.85;}
 
-/* CAMPO */
 .campo-det{margin-top:16px;}
 .campo-det:first-child{margin-top:0;}
 .campo-det label{display:block;font-size:0.72rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--suave);margin-bottom:8px;}
 
-/* STEPPER AMARILLAS */
+/* GANADOR — botones especiales */
+.opciones-campeon{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:10px;}
+.btn-campeon{
+  font-family:'Futura',sans-serif;font-weight:700;font-size:0.85rem;
+  letter-spacing:.5px;text-transform:uppercase;
+  padding:20px 10px 16px;
+  border:2px solid var(--gris);border-radius:14px;background:#fff;
+  cursor:pointer;text-align:center;color:var(--suave);
+  transition:all .2s;
+}
+.btn-campeon img{display:block;width:56px;height:auto;margin:0 auto 10px;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,0.15);}
+.btn-campeon:hover{border-color:var(--naranja);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.1);}
+.btn-campeon.activo{border-color:var(--naranja);background:linear-gradient(135deg,rgba(255,204,0,0.1),rgba(235,102,8,0.1));}
+.btn-campeon.activo .trofeo{display:block;}
+.trofeo{display:none;font-size:1.4rem;margin-top:6px;}
+
 .stepper-amarillas{display:flex;align-items:center;gap:10px;}
 .stepper-amarillas button{
   width:36px;height:36px;border-radius:50%;
-  border:1.5px solid var(--naranja);background:#fff;
+  border:1.5px solid var(--rojizo);background:#fff;
   font-size:1.1rem;font-weight:700;cursor:pointer;
-  color:var(--naranja);transition:background .15s,color .15s;
+  color:var(--rojizo);transition:background .15s,color .15s;
   font-family:'Futura',sans-serif;
 }
-.stepper-amarillas button:hover{background:var(--naranja);color:#fff;}
+.stepper-amarillas button:hover{background:var(--rojizo);color:#fff;}
 .stepper-amarillas .val-am{font-size:1.4rem;font-weight:700;width:36px;text-align:center;}
-.tarjeta-amarilla{font-size:1.1rem;}
 
-/* LLEGADA */
-.llegada-opciones{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-.opcion-llegada{
-  font-family:'Futura',sans-serif;font-weight:700;font-size:0.75rem;
-  letter-spacing:.5px;text-transform:uppercase;padding:13px 8px;
-  border:1.5px solid var(--gris);border-radius:10px;background:#fff;
-  cursor:pointer;text-align:center;color:var(--suave);
-  transition:border-color .15s,background .15s,color .15s;
-}
-.opcion-llegada:hover{border-color:var(--naranja);color:var(--naranja);}
-.opcion-llegada.activo{background:var(--naranja);border-color:var(--naranja);color:#fff;}
-
-/* GENERAR */
 .generar-btn{
   display:block;width:100%;margin-top:24px;
   font-family:'Futura',sans-serif;font-weight:700;
   font-size:0.88rem;letter-spacing:2px;text-transform:uppercase;
   padding:17px;border:none;border-radius:12px;
-  background:var(--naranja);color:#fff;cursor:pointer;
-  box-shadow:0 4px 16px rgba(245,156,0,0.3);
+  background:linear-gradient(135deg,#c8102e,#003087);color:#fff;cursor:pointer;
+  box-shadow:0 4px 16px rgba(0,0,0,0.25);
   transition:opacity .15s,transform .1s;
 }
 .generar-btn:hover{opacity:.9;}
@@ -148,36 +146,35 @@ body{font-family:'Futura',sans-serif;font-weight:400;background:var(--fondo);col
 .generar-btn:disabled{opacity:.3;cursor:not-allowed;}
 .ayuda{text-align:center;font-size:0.76rem;color:var(--suave);margin-top:8px;}
 
-/* RESULTADO CARD */
 .resultado{display:none;margin-top:28px;}
 .resultado.visible{display:block;}
 .tarjeta-compartir{
-  background:linear-gradient(160deg,var(--amarillo) 0%,var(--naranja) 55%,var(--rojizo) 100%);
+  background:linear-gradient(160deg,#c8102e 0%,#800000 45%,#003087 100%);
   border-radius:18px;padding:24px 20px 20px;
-  box-shadow:0 6px 22px rgba(245,156,0,0.28);
+  box-shadow:0 6px 22px rgba(0,0,0,0.28);
 }
 .tc-header{text-align:center;margin-bottom:14px;}
 .tc-emoji{font-size:36px;margin-bottom:6px;}
 .tc-titulo{font-weight:700;font-size:0.9rem;letter-spacing:2px;text-transform:uppercase;color:#fff;}
 .tc-nombre{font-weight:300;font-size:0.8rem;color:rgba(255,255,255,0.88);margin-top:3px;}
-.tc-cuerpo{background:rgba(255,255,255,0.94);border-radius:12px;padding:16px;}
+.tc-cuerpo{background:rgba(255,255,255,0.95);border-radius:12px;padding:16px;}
 .tc-versus{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;padding-bottom:14px;border-bottom:1px dashed var(--gris);}
 .tc-equipo{text-align:center;flex:1;}
-.tc-bandera{display:block;width:44px;height:auto;margin:0 auto 4px;border-radius:3px;box-shadow:0 1px 4px rgba(0,0,0,0.15);}
+.tc-bandera{display:block;width:48px;height:auto;margin:0 auto 4px;border-radius:3px;box-shadow:0 1px 4px rgba(0,0,0,0.15);}
 .tc-pais{font-size:0.7rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--suave);margin-top:3px;}
-.tc-marcador-final{font-weight:700;font-size:2.2rem;color:var(--rojizo);letter-spacing:4px;text-align:center;}
+.tc-marcador-final{font-weight:700;font-size:2.2rem;color:#800000;letter-spacing:4px;text-align:center;}
 .tc-sub{font-size:0.7rem;color:var(--suave);margin-top:4px;text-align:center;}
 .tc-fila{display:flex;justify-content:space-between;align-items:center;padding:5px 0;font-size:0.82rem;border-bottom:1px solid rgba(0,0,0,0.05);}
 .tc-fila:last-child{border-bottom:none;}
 .tc-fila span:first-child{color:var(--suave);font-weight:300;}
-.tc-fila strong{color:var(--tinta);font-weight:700;text-align:right;max-width:60%;}
-.tc-badge{
-  margin-top:12px;padding:10px;border-radius:8px;text-align:center;
+.tc-fila strong{color:var(--tinta);font-weight:700;text-align:right;}
+.tc-badge-campeon{
+  margin-top:12px;padding:14px;border-radius:10px;text-align:center;
   background:linear-gradient(135deg,var(--amarillo),var(--naranja));
-  font-weight:700;font-size:0.82rem;color:#fff;letter-spacing:.5px;
+  font-weight:700;font-size:0.95rem;color:#fff;letter-spacing:.5px;
 }
+.tc-badge-campeon .trofeo-badge{font-size:1.6rem;display:block;margin-bottom:4px;}
 
-/* ACCIONES */
 .acciones{display:flex;flex-direction:column;gap:10px;margin-top:14px;}
 .accion-btn{
   display:flex;align-items:center;justify-content:center;gap:10px;
@@ -187,7 +184,7 @@ body{font-family:'Futura',sans-serif;font-weight:400;background:var(--fondo);col
   text-decoration:none;transition:opacity .15s;border:none;
 }
 .accion-btn.whatsapp{background:#25D366;color:#fff;}
-.accion-btn.imagen{background:#fff;color:var(--naranja);border:1.5px solid var(--naranja);}
+.accion-btn.imagen{background:#fff;color:var(--rojizo);border:1.5px solid var(--rojizo);}
 .accion-btn.reiniciar{background:none;border:1px dashed var(--gris);color:var(--suave);font-size:0.72rem;padding:11px;}
 
 footer{text-align:center;margin-top:36px;padding:16px;}
@@ -198,20 +195,18 @@ footer{text-align:center;margin-top:36px;padding:16px;}
 </head>
 <body>
 
-<!-- HERO -->
 <header class="hero">
-  <span class="hero-emoji">🐥</span>
-  <h1>Octavos de Final<br>Mundial 2026</h1>
-  <p class="hero-sub">¿Cómo le va a ir a Colombia?</p>
+  <span class="hero-emoji">🏆</span>
+  <h1>Final Mundial<br>FIFA 2026</h1>
+  <p class="hero-sub">El partido más grande del mundo</p>
   <svg class="hero-wave" viewBox="0 0 1440 48" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
     <path d="M0 48 C360 0 1080 0 1440 48 L1440 48 L0 48 Z" fill="#fafafa"/>
   </svg>
 </header>
 
-<!-- GLOBO -->
 <div class="globo-wrap">
   <div class="globo">
-    ¡Llegó el momento! 🇨🇴 Colombia en octavos. ¿Cuál es tu pronóstico?
+    🏆 ¡La gran final! ¿Quién se corona campeón del mundo?
   </div>
 </div>
 
@@ -221,19 +216,20 @@ footer{text-align:center;margin-top:36px;padding:16px;}
   <div class="versus-banner">
     <div class="versus-equipos">
       <div class="equipo-vs">
-        <img class="bandera-grande" src="https://flagcdn.com/w80/ch.png" alt="Suiza">
-        <span class="nombre-equipo">Suiza</span>
+        <img class="bandera-grande" src="https://flagcdn.com/w80/es.png" alt="España">
+        <span class="nombre-equipo">España</span>
       </div>
       <div class="vs-separador">VS</div>
       <div class="equipo-vs">
-        <img class="bandera-grande" src="https://flagcdn.com/w80/co.png" alt="Colombia">
-        <span class="nombre-equipo">Colombia</span>
+        <img class="bandera-grande" src="https://flagcdn.com/w80/ar.png" alt="Argentina">
+        <span class="nombre-equipo">Argentina</span>
       </div>
     </div>
     <p class="dato-partido">
-      <strong>Martes 7 de julio · 4:00 PM ET</strong><br>
-      BC Place · Vancouver · Octavos de Final
+      <strong>Domingo 19 de julio · 2:00 PM</strong><br>
+      Final · Copa Mundial FIFA 2026
     </p>
+    <span class="copa-badge">🏆 La gran final</span>
   </div>
 
   <!-- NOMBRE -->
@@ -241,9 +237,28 @@ footer{text-align:center;margin-top:36px;padding:16px;}
     <p class="etiqueta">✏️ Tu nombre o apodo</p>
     <div class="tarjeta">
       <input type="text" id="input-nombre" class="input-texto"
-        placeholder="Ej: El más positivo del grupo 🙌"
+        placeholder="Ej: El profeta del grupo 🔮"
         maxlength="20" autocomplete="off">
       <div class="contador-caracteres"><span id="contador">0</span>/20</div>
+    </div>
+  </section>
+
+  <!-- CAMPEÓN — Lo más importante -->
+  <section class="seccion">
+    <p class="etiqueta">🏆 ¿Quién gana el Mundial?</p>
+    <div class="tarjeta">
+      <div class="opciones-campeon">
+        <button class="btn-campeon" type="button" onclick="selCampeon('españa', this)">
+          <img src="https://flagcdn.com/w80/es.png" alt="España">
+          <strong>España</strong>
+          <div class="trofeo">🏆 CAMPEÓN</div>
+        </button>
+        <button class="btn-campeon" type="button" onclick="selCampeon('argentina', this)">
+          <img src="https://flagcdn.com/w80/ar.png" alt="Argentina">
+          <strong>Argentina</strong>
+          <div class="trofeo">🏆 CAMPEÓN</div>
+        </button>
+      </div>
     </div>
   </section>
 
@@ -254,27 +269,26 @@ footer{text-align:center;margin-top:36px;padding:16px;}
       <div class="marcador-titulo">¿Cómo termina el partido?</div>
       <div class="marcador-fila">
         <div class="equipo-marcador">
-          <img class="equipo-bandera" src="https://flagcdn.com/w80/ch.png" alt="Suiza">
-          <div class="equipo-nombre">Suiza</div>
+          <img class="equipo-bandera" src="https://flagcdn.com/w80/es.png" alt="España">
+          <div class="equipo-nombre">España</div>
           <div class="stepper">
-            <button type="button" onclick="cambiarGol('sui',-1)">−</button>
-            <span class="valor" id="goles-sui">0</span>
-            <button type="button" onclick="cambiarGol('sui',1)">+</button>
+            <button type="button" onclick="cambiarGol('esp',-1)">−</button>
+            <span class="valor" id="goles-esp">0</span>
+            <button type="button" onclick="cambiarGol('esp',1)">+</button>
           </div>
         </div>
         <div class="vs">VS</div>
         <div class="equipo-marcador">
-          <img class="equipo-bandera" src="https://flagcdn.com/w80/co.png" alt="Colombia">
-          <div class="equipo-nombre">Colombia</div>
+          <img class="equipo-bandera" src="https://flagcdn.com/w80/ar.png" alt="Argentina">
+          <div class="equipo-nombre">Argentina</div>
           <div class="stepper">
-            <button type="button" onclick="cambiarGol('col',-1)">−</button>
-            <span class="valor" id="goles-col">0</span>
-            <button type="button" onclick="cambiarGol('col',1)">+</button>
+            <button type="button" onclick="cambiarGol('arg',-1)">−</button>
+            <span class="valor" id="goles-arg">0</span>
+            <button type="button" onclick="cambiarGol('arg',1)">+</button>
           </div>
         </div>
       </div>
 
-      <!-- CÓMO SE DEFINE -->
       <div class="sep"></div>
       <div class="campo-det">
         <label>¿Cómo se define?</label>
@@ -291,12 +305,11 @@ footer{text-align:center;margin-top:36px;padding:16px;}
         </div>
       </div>
 
-      <!-- SI PENALES: quién gana -->
       <div id="bloque-penales" class="campo-det oculto">
         <label>¿Quién gana en penales?</label>
         <div class="opciones-grid col2">
-          <button class="op-btn" type="button" onclick="selPenal('sui', this)">🇨🇭 Suiza</button>
-          <button class="op-btn" type="button" onclick="selPenal('col', this)">🇨🇴 Colombia</button>
+          <button class="op-btn" type="button" onclick="selPenal('esp', this)">🇪🇸 España</button>
+          <button class="op-btn" type="button" onclick="selPenal('arg', this)">🇦🇷 Argentina</button>
         </div>
       </div>
     </div>
@@ -307,103 +320,85 @@ footer{text-align:center;margin-top:36px;padding:16px;}
     <p class="etiqueta">🎯 Detalles del partido</p>
     <div class="tarjeta">
 
-      <!-- GOLEADOR LIBRE -->
       <div class="campo-det">
         <label>⚽ Primer goleador del partido</label>
         <input type="text" id="input-goleador" class="input-texto"
-          placeholder="Ej: Luis Díaz, Embolo, autogol..."
+          placeholder="Ej: Lamine Yamal, Messi, autogol..."
           maxlength="30" autocomplete="off">
       </div>
 
       <div class="sep"></div>
 
-      <!-- COLOMBIA EN OCTAVOS -->
       <div class="campo-det">
-        <label>🇨🇴 ¿Colombia clasifica a cuartos?</label>
-        <div class="opciones-grid col2">
-          <button class="op-btn" type="button" onclick="selCuartos(true, this)">✅ Sí clasifica</button>
-          <button class="op-btn" type="button" onclick="selCuartos(false, this)">❌ Eliminada</button>
+        <label>🟨 Tarjetas amarillas</label>
+        <div style="display:flex;gap:24px;align-items:center;margin-top:4px;">
+          <div>
+            <div style="font-size:0.68rem;color:var(--suave);margin-bottom:8px;letter-spacing:.5px;">🇪🇸 ESPAÑA</div>
+            <div class="stepper-amarillas">
+              <button type="button" onclick="cambiarAmarilla('esp',-1)">−</button>
+              <span class="val-am" id="am-esp">0</span>
+              <button type="button" onclick="cambiarAmarilla('esp',1)">+</button>
+            </div>
+          </div>
+          <div style="font-size:1.3rem;color:var(--suave);padding-top:20px;">🟨</div>
+          <div>
+            <div style="font-size:0.68rem;color:var(--suave);margin-bottom:8px;letter-spacing:.5px;">🇦🇷 ARGENTINA</div>
+            <div class="stepper-amarillas">
+              <button type="button" onclick="cambiarAmarilla('arg',-1)">−</button>
+              <span class="val-am" id="am-arg">0</span>
+              <button type="button" onclick="cambiarAmarilla('arg',1)">+</button>
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="sep"></div>
 
-      <!-- TARJETAS AMARILLAS -->
       <div class="campo-det">
-        <label>🟨 Tarjetas amarillas en el partido</label>
-        <div style="display:flex;gap:24px;align-items:center;margin-top:4px;">
-          <div>
-            <div style="font-size:0.68rem;color:var(--suave);margin-bottom:8px;letter-spacing:.5px;">🇨🇭 SUIZA</div>
-            <div class="stepper-amarillas">
-              <button type="button" onclick="cambiarAmarilla('sui',-1)">−</button>
-              <span class="val-am" id="am-sui">0</span>
-              <button type="button" onclick="cambiarAmarilla('sui',1)">+</button>
-            </div>
-          </div>
-          <div style="font-size:1.3rem;color:var(--suave);padding-top:20px;">🟨</div>
-          <div>
-            <div style="font-size:0.68rem;color:var(--suave);margin-bottom:8px;letter-spacing:.5px;">🇨🇴 COLOMBIA</div>
-            <div class="stepper-amarillas">
-              <button type="button" onclick="cambiarAmarilla('col',-1)">−</button>
-              <span class="val-am" id="am-col">0</span>
-              <button type="button" onclick="cambiarAmarilla('col',1)">+</button>
-            </div>
-          </div>
-        </div>
+        <label>🎖️ Jugador del partido (MVP)</label>
+        <input type="text" id="input-mvp" class="input-texto"
+          placeholder="Ej: Messi, Yamal, Rodri..."
+          maxlength="30" autocomplete="off">
       </div>
 
-    </div>
-  </section>
-
-  <!-- LLEGADA COLOMBIA -->
-  <section class="seccion">
-    <p class="etiqueta">🌍 ¿Hasta dónde llega Colombia?</p>
-    <div class="tarjeta">
-      <div class="llegada-opciones" id="opciones-llegada">
-        <button class="opcion-llegada" data-v="Eliminada en octavos" type="button" onclick="selLlegada(this)">Octavos 😢</button>
-        <button class="opcion-llegada" data-v="Cuartos de final" type="button" onclick="selLlegada(this)">Cuartos 💪</button>
-        <button class="opcion-llegada" data-v="Semifinal" type="button" onclick="selLlegada(this)">Semifinal 🔥</button>
-        <button class="opcion-llegada" data-v="Final" type="button" onclick="selLlegada(this)">La final 🤯</button>
-        <button class="opcion-llegada" data-v="Campeón 🏆" type="button" onclick="selLlegada(this)"
-          style="grid-column:span 2;background:linear-gradient(135deg,var(--amarillo),var(--naranja));border-color:var(--naranja);color:#fff;">
-          🏆 ¡Campeones del Mundo!
-        </button>
-      </div>
     </div>
   </section>
 
   <!-- GENERAR -->
   <button class="generar-btn" id="btn-generar" type="button" disabled onclick="generarPronostico()">
-    🇨🇴 Generar mi pronóstico
+    🏆 Generar mi pronóstico
   </button>
-  <p class="ayuda">Completa el marcador, cómo se define y hasta dónde llega Colombia</p>
+  <p class="ayuda">Elige el campeón, el marcador y cómo se define</p>
 
   <!-- RESULTADO -->
   <section class="resultado" id="resultado">
     <p class="etiqueta">🎊 ¡Tu pronóstico está listo!</p>
     <div class="tarjeta-compartir" id="tarjeta-compartir">
       <div class="tc-header">
-        <div class="tc-emoji">🐥🇨🇴</div>
-        <p class="tc-titulo">Pronóstico · Octavos 2026</p>
+        <div class="tc-emoji">🏆⚽</div>
+        <p class="tc-titulo">Final Mundial FIFA 2026</p>
         <p class="tc-nombre" id="tc-nombre">Por: —</p>
       </div>
       <div class="tc-cuerpo">
         <div class="tc-versus">
           <div class="tc-equipo">
-            <img class="tc-bandera" src="https://flagcdn.com/w80/ch.png" alt="Suiza">
-            <div class="tc-pais">Suiza</div>
+            <img class="tc-bandera" src="https://flagcdn.com/w80/es.png" alt="España">
+            <div class="tc-pais">España</div>
           </div>
           <div style="text-align:center;">
             <div class="tc-marcador-final" id="tc-marcador">0 – 0</div>
             <div class="tc-sub" id="tc-tipo-def"></div>
           </div>
           <div class="tc-equipo">
-            <img class="tc-bandera" src="https://flagcdn.com/w80/co.png" alt="Colombia">
-            <div class="tc-pais">Colombia</div>
+            <img class="tc-bandera" src="https://flagcdn.com/w80/ar.png" alt="Argentina">
+            <div class="tc-pais">Argentina</div>
           </div>
         </div>
         <div id="tc-detalles"></div>
-        <div class="tc-badge" id="tc-llegada">Colombia: —</div>
+        <div class="tc-badge-campeon" id="tc-campeon">
+          <span class="trofeo-badge">🏆</span>
+          <span id="tc-campeon-txt">— CAMPEÓN DEL MUNDO</span>
+        </div>
       </div>
     </div>
 
@@ -421,49 +416,49 @@ footer{text-align:center;margin-top:36px;padding:16px;}
   </section>
 
   <footer>
-    <p class="footer-txt">🐥 Mundial 2026 · ¡Vamos Colombia! · Incubant</p>
+    <p class="footer-txt">🏆 FIFA World Cup 2026 · Final · Incubant</p>
   </footer>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script>
 const e = {
-  nombre:'', golesSui:0, golesCol:0,
+  nombre:'', golesEsp:0, golesArg:0,
   tipoDef:'', penalGanador:'',
-  goleador:'', clasificaCuartos:null,
-  amSui:0, amCol:0, llegada:''
+  campeon:'', goleador:'', mvp:'',
+  amEsp:0, amArg:0
 };
 
-// NOMBRE
 document.getElementById('input-nombre').addEventListener('input',function(){
   e.nombre = this.value;
   document.getElementById('contador').textContent = this.value.length;
   validar();
 });
+document.getElementById('input-goleador').addEventListener('input',function(){ e.goleador = this.value.trim(); });
+document.getElementById('input-mvp').addEventListener('input',function(){ e.mvp = this.value.trim(); });
 
-// GOLEADOR LIBRE
-document.getElementById('input-goleador').addEventListener('input',function(){
-  e.goleador = this.value.trim();
-});
-
-// GOLES
 function cambiarGol(eq, d){
-  if(eq==='sui'){ e.golesSui=Math.max(0,e.golesSui+d); document.getElementById('goles-sui').textContent=e.golesSui; }
-  else          { e.golesCol=Math.max(0,e.golesCol+d);  document.getElementById('goles-col').textContent=e.golesCol;  }
+  if(eq==='esp'){ e.golesEsp=Math.max(0,e.golesEsp+d); document.getElementById('goles-esp').textContent=e.golesEsp; }
+  else          { e.golesArg=Math.max(0,e.golesArg+d); document.getElementById('goles-arg').textContent=e.golesArg; }
   validar();
 }
 
-// TIPO DEFINICIÓN
+function selCampeon(eq, btn){
+  document.querySelectorAll('.btn-campeon').forEach(b=>b.classList.remove('activo'));
+  btn.classList.add('activo');
+  e.campeon = eq;
+  validar();
+}
+
 function selTipo(btn){
   document.querySelectorAll('[data-tipo]').forEach(b=>b.classList.remove('activo'));
   btn.classList.add('activo');
   e.tipoDef = btn.dataset.tipo;
   document.getElementById('bloque-penales').classList.toggle('oculto', e.tipoDef !== 'penales');
-  if(e.tipoDef !== 'penales'){ e.penalGanador=''; }
+  if(e.tipoDef !== 'penales') e.penalGanador='';
   validar();
 }
 
-// PENALES
 function selPenal(eq, btn){
   document.querySelectorAll('#bloque-penales .op-btn').forEach(b=>b.classList.remove('activo'));
   btn.classList.add('activo');
@@ -471,83 +466,60 @@ function selPenal(eq, btn){
   validar();
 }
 
-// CUARTOS
-function selCuartos(val, btn){
-  document.querySelectorAll('#opciones-cuartos .op-btn, .campo-det .op-btn').forEach(b=>{
-    if(b.textContent.includes('clasifica')||b.textContent.includes('liminada')) b.classList.remove('activo');
-  });
-  btn.classList.add('activo');
-  e.clasificaCuartos = val;
-  validar();
-}
-
-// AMARILLAS
 function cambiarAmarilla(eq, d){
-  if(eq==='sui'){ e.amSui=Math.max(0,e.amSui+d); document.getElementById('am-sui').textContent=e.amSui; }
-  else          { e.amCol=Math.max(0,e.amCol+d);  document.getElementById('am-col').textContent=e.amCol;  }
+  if(eq==='esp'){ e.amEsp=Math.max(0,e.amEsp+d); document.getElementById('am-esp').textContent=e.amEsp; }
+  else          { e.amArg=Math.max(0,e.amArg+d); document.getElementById('am-arg').textContent=e.amArg; }
 }
 
-// LLEGADA
-function selLlegada(btn){
-  document.querySelectorAll('.opcion-llegada').forEach(b=>b.classList.remove('activo'));
-  btn.classList.add('activo');
-  e.llegada = btn.dataset.v;
-  validar();
-}
-
-// VALIDAR BTN
 function validar(){
   const penOk = e.tipoDef !== 'penales' || e.penalGanador !== '';
-  const ok = e.nombre.trim().length > 0 && e.tipoDef !== '' && e.llegada !== '' && penOk;
+  const ok = e.nombre.trim().length > 0 && e.campeon !== '' && e.tipoDef !== '' && penOk;
   document.getElementById('btn-generar').disabled = !ok;
 }
 
-// GENERAR
 function generarPronostico(){
   const nombre = e.nombre.trim() || 'Anónimo';
-  document.getElementById('tc-marcador').textContent = `${e.golesSui} – ${e.golesCol}`;
+  document.getElementById('tc-marcador').textContent = `${e.golesEsp} – ${e.golesArg}`;
   document.getElementById('tc-nombre').textContent = `Por: ${nombre}`;
 
   let tipotxt = '';
   if(e.tipoDef==='regular')  tipotxt = 'Tiempo regular ⏱️';
   else if(e.tipoDef==='prorroga') tipotxt = 'Prórroga ⏰';
   else if(e.tipoDef==='penales'){
-    const gp = e.penalGanador==='col' ? '🇨🇴 Colombia' : '🇨🇭 Suiza';
+    const gp = e.penalGanador==='esp' ? '🇪🇸 España' : '🇦🇷 Argentina';
     tipotxt = `Penales → ${gp} 🎯`;
   }
   document.getElementById('tc-tipo-def').textContent = tipotxt;
 
+  const campeonNombre = e.campeon === 'españa' ? '🇪🇸 ESPAÑA' : '🇦🇷 ARGENTINA';
+  document.getElementById('tc-campeon-txt').textContent = `${campeonNombre} CAMPEÓN DEL MUNDO`;
+
   let html = '';
   if(e.goleador) html += `<div class="tc-fila"><span>⚽ Primer goleador</span><strong>${e.goleador}</strong></div>`;
-  if(e.clasificaCuartos!==null) html += `<div class="tc-fila"><span>🏆 Clasifica a cuartos</span><strong>${e.clasificaCuartos?'✅ Sí':'❌ No'}</strong></div>`;
-  html += `<div class="tc-fila"><span>🟨 Amarillas Suiza / COL</span><strong>${e.amSui} / ${e.amCol}</strong></div>`;
+  html += `<div class="tc-fila"><span>🟨 Amarillas ESP / ARG</span><strong>${e.amEsp} / ${e.amArg}</strong></div>`;
+  if(e.mvp) html += `<div class="tc-fila"><span>🎖️ Jugador del partido</span><strong>${e.mvp}</strong></div>`;
   document.getElementById('tc-detalles').innerHTML = html;
 
-  const esCampeon = e.llegada === 'Campeón 🏆';
-  document.getElementById('tc-llegada').textContent = esCampeon ? '🏆 ¡Colombia CAMPEÓN DEL MUNDO!' : `Colombia llega a: ${e.llegada}`;
-
-  // WhatsApp
-  let msg = `🐥🇨🇴 *MI PRONÓSTICO — Octavos Mundial 2026*\n`;
+  let msg = `🏆⚽ *MI PRONÓSTICO — FINAL MUNDIAL 2026*\n`;
   msg += `👤 ${nombre}\n\n`;
-  msg += `🇨🇭 Suiza *${e.golesSui} – ${e.golesCol}* Colombia 🇨🇴\n`;
+  msg += `🇪🇸 España *${e.golesEsp} – ${e.golesArg}* Argentina 🇦🇷\n`;
   msg += `⏱️ ${tipotxt}\n`;
   if(e.goleador) msg += `⚽ Primer goleador: ${e.goleador}\n`;
-  if(e.clasificaCuartos!==null) msg += `🏆 ¿Cuartos?: ${e.clasificaCuartos?'Sí ✅':'No ❌'}\n`;
-  msg += `🟨 Amarillas: Suiza ${e.amSui} · Colombia ${e.amCol}\n`;
-  msg += `\n🌍 Colombia llega a: *${e.llegada}*\n`;
-  msg += `\n¡Vamos Colombia! 🇨🇴🔥`;
+  if(e.mvp) msg += `🎖️ MVP: ${e.mvp}\n`;
+  msg += `🟨 Amarillas: España ${e.amEsp} · Argentina ${e.amArg}\n`;
+  msg += `\n🏆 *CAMPEÓN DEL MUNDO: ${campeonNombre}*\n`;
+  msg += `\n¡Vamos! 🌍🔥`;
   document.getElementById('btn-whatsapp').href = `https://wa.me/?text=${encodeURIComponent(msg)}`;
 
   document.getElementById('resultado').classList.add('visible');
   setTimeout(()=>document.getElementById('resultado').scrollIntoView({behavior:'smooth',block:'start'}),100);
 }
 
-// IMAGEN
 async function descargarImagen(){
   const el = document.getElementById('tarjeta-compartir');
   const canvas = await html2canvas(el,{scale:2,useCORS:true,backgroundColor:null});
   const link = document.createElement('a');
-  link.download = 'pronostico-colombia-suiza.png';
+  link.download = 'pronostico-final-mundial-2026.png';
   link.href = canvas.toDataURL('image/png');
   link.click();
 }
