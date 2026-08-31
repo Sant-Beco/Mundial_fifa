@@ -1,0 +1,15 @@
+{
+  "name": "Gym Tracker",
+  "short_name": "GymTracker",
+  "description": "Registro de rutina, series, pesos, historial y progreso de entrenamiento",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0f0f0f",
+  "theme_color": "#0f0f0f",
+  "lang": "es",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
